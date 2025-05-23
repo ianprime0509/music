@@ -1,0 +1,106 @@
+#Title LOFI.M
+#Composer Ian Johnson
+#Memo Experimental PC-98 lofi track
+#Tempo 40
+#Option /v/c
+
+; Instrument source: https://github.com/pedipanol/mml-guide/blob/5190ff7b764af33b2bf6bce22d70e9561ad2c9f6/docs/pmd/files/BRICK.MML
+@  0   4   7  =SLOW
+   6   0   0   3  15  33   0   1   6   0
+   6   0   0   5  15  10   0   1   5   0
+   6   4   0   3   0  56   0   5   1   0
+   6   0   0   5  15  10   0   1   0   0
+
+@  1   4   0  =EPIANO1
+  31  21   0   3   3  57   0  14   5   0
+  31   9   0  10  15  23   0   1   0   0
+  31   1   0   1   5  53   0   1   5   0
+  31   8   0   9  15   2   0   1   0   0
+
+R0 r1
+R1 l24 [@1[c]6 @2c@1[c]5]2
+
+!theme egdd4.e4 egd S3,-2 e4 S0 >c<bg egdd4.e4 egd S3,-2 e4 S0 >ed16c16<b16g16
+!shift g.a4 S3,-2 a2&16 S0 &4cgfedc <b.>c4 S3,3 <a2&16 S0 ab2.. >
+
+ABC @0 o5 l1 v12
+DE @1 o5 l4 v12
+F @1 o6 l8 q1 v14
+G o7 l8 v14
+H o7 l16 v14
+
+A c&1&1&1&1
+B d&1&1&1&1
+C rb1g1&1&1
+D r1r1r1[[c]4]2
+E r1r1r1[[d]4]2
+FGH [r1]5
+K [R0]5
+
+ABCDEFGHK L
+
+ABC c1&1&1&1
+D [[c]4]4
+E [[d]4]4
+F !theme
+GH [r1]4
+K [R0]4
+
+A c r <f &4 g2.
+B f r <a &4 b2.
+C a r  c &4 d2.
+D [c]4 cr2. <[f]4 f[g]3
+E [f]4 fr2. <[a]4 a[b]3
+F !shift
+GH [r1]4
+K [R0]4
+
+A >c&1&1&1
+B >d&1&1&1
+C  g&1&1&1
+D >[[c]4]4
+E >[[d]4]4
+F !theme
+G W6,-2 [c<bgd deg>c]4
+H [r1]4
+K [R1]4
+
+A c&1 <a  g
+B f&1  c <b
+C a&1  e  d
+D [[c]4]2 <[a]4  [g]4
+E [[f]4]2  [c]4 <[b]4
+F !theme
+G W6,-2 [c<bgd deg>c]4
+H [r1]4
+K [R1]4
+
+A >c&1&1&1
+B >d&1&1&1
+C  g&1&1&1
+D >[[c]4]4
+E >[[d]4]4
+F !theme
+G W6,-2 [c<bgd deg>c]4
+H [e8 dedege8.de>c<bga]4
+K [R1]4
+
+A c&1 <a  g
+B f&1  c <b
+C a&1  e  d
+D [[c]4]2 <[a]4  [g]4
+E [[f]4]2  [c]4 <[b]4
+F !theme
+G W6,-2 [c<bgd deg>c]4
+H [e8 dedege8.de>c<bga]4
+K [R1]4
+
+A c r <f &4 g2.
+B f r <a &4 b2.
+C a r  c &4 d2.
+D >[c]4 cr2. <[f]4 f[g]3
+E >[f]4 fr2. <[a]4 a[b]3
+F !shift
+G W0 l16 ede g d<b>c<ba4. MW6 M12,1,-1,-1 *6 b8 &4 *0 r2. cq1d8.q0 dq1e8.q0 eq1f4..q0 f8g2 *6 g4. *0
+H        gfg>c<f d e fe4. MW6 M12,1,-1,-1 *6 d8 &4 *0 r2. eq1f8.q0 fq1g8.q0 gq1a4..q0 a8b2 *6 b4. *0
+K [R0]4
