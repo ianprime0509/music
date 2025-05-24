@@ -18,7 +18,7 @@
   31   8   0   9  15   2   0   1   0   0
 
 R0 r1
-R1 l24 [@1[c]6 @2c@1[c]5]2
+R1 \V32 l24 [@1[c]6 @2c@1[c]5]2
 
 !theme egdd4.e4 egd S3,-2 e4 S0 >c<bg egdd4.e4 egd S3,-2 e4 S0 >ed16c16<b16g16
 !shift g.a4 S3,-2 a2&16 S0 &4cgfedc <b.>c4 S3,3 <a2&16 S0 ab2.. >
@@ -26,8 +26,8 @@ R1 l24 [@1[c]6 @2c@1[c]5]2
 ABC @0 o5 l1 v12
 DE @1 o5 l4 v12
 F @1 o6 l8 q1 v14
-G o7 l8 v14
-H o7 l16 v14
+G o7 l8 v13
+H o7 l16 v13
 
 A c&1&1&1&1
 B d&1&1&1&1
