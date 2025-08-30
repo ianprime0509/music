@@ -1,0 +1,65 @@
+#Option /v/c
+#Tempo 80
+
+@  0   2   6   =BPluck
+  31   0   0   4   0  14   1   1  -3   0
+  31  16   1   4   1  25   1   1  -3   0
+  31  22   1   4   5  10   0   1  -3   0
+  31  11   1  15  15   0   2   1   0   0
+
+@  1   2   6   =BMute
+  31   0   0   4   0  14   1   1  -3   0
+  31  16   1   4   1  25   1   1  -3   0
+  31  22   1   4   5  20   0   1  -3   0
+  31  11   1  15  15   0   2   1   0   0
+
+@  2   4   7   =BelPian
+  31  15   8   4   2  30   0  12  -3   0
+  31  15   8   6   1   0   0   4   0   0
+  31  15   8   4   2  30   0  12   0   0
+  31  15   8   6   1   0   0   4  -3   0
+
+R0 r1
+R1 l16 r2.. @1cc
+R2 l8 [@1c@256c]4
+R3 l8 [@1c@256c]3 @1c\sr16\sr16
+R4 l16 [@1cc @256\sc8]4
+R5 l16 [@1cc @256\sc8]3 @1c\sr\sr\sr
+R6 l16 [\sr\sr@1c\sr\sr@1c\sr@1c]2
+R7 \sr1
+
+ABCGH _{-beadg}
+A @0 v15 l16 o3
+B @1 v13 l16 o3
+C @2 v12 l8 o4
+GH @0 v14
+K \V63\vs31
+
+B r4
+AB [b>cdf< r4]4 [g=a=b>d=< r4]4
+CGH [r1]4
+K [R0]3 R1
+
+AB [b>cdf< r4]4 [g=a=b>d=< r4]4
+CGH [r1]4
+K [R2]3 R3
+
+AB [b>cdf< r4]4 [g=a=b>d=< r4]4
+CGH [r1]4
+K [R4]4
+
+AB [b>cdf< r4]4 [g=a=b>d=< r4]4
+CGH [r1]4
+K [R4]3 R5
+
+AB [b>cdf< r4]4 [g=a=b>d=< r4]4
+A [b>cdf< r4]4 [g=a=b>d=< r4]4
+B [b>cdf< r4]4 [g=a=b>d=< r4]3 g=a=b>d=<
+C [b2..a16b16 f2..e16f16 g=2..f16g=16 c2d=2]2
+GH [[r1]4]2
+K [[R4]4]2
+
+C [e8.f8.g=8 f8.e8.d=8 e1]2
+G [e2f2g=1]2
+H [c2d=2e1]2
+K [R6R7]2
