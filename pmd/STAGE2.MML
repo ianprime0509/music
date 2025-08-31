@@ -1,0 +1,75 @@
+#Option /v/c
+#Tempo 80
+
+@  0   5   7   =PSGFade
+  31   0   0  15  15  29   0   2   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+
+@  1   3   7   =DGuitar
+  31   4   1   2   3  32   0   6  -3   0
+  31   0   0   2  15  25   2   2  -3   0
+  31  15   0   2   5   0   2   0  -3   0
+  31   0   0   6   2   0   0   2  -3   0
+
+@  2   4   7   =BelPian
+  31  15   8   4   2  30   0  12  -3   0
+  31  15   8   6   1   0   0   4   0   0
+  31  15   8   4   2  30   0  12   0   0
+  31  15   8   6   1   0   0   4  -3   0
+
+!ring @0 M0,1,4,1 *2
+!dguitar @1
+!bellpiano @2
+
+R0 r1
+R1 l8 @1xxx@2x @1xx@2x@1x x@2x@1xx @2x@1x@2xx
+R2 l16 @2 r2xxxxxxxx
+R3 l16 [@1xx@2x@1x xx@258x@1x]2
+R4 l16 @5xxxx @81xxxx @11xxxx @5xxxx
+
+ABCDEGH _{+fc}
+A !ring v9 l4 o5
+B !ring v9 l4 o3
+C !dguitar v10 l1 o4
+D !bellpiano Wl8 v11 l4 o4
+E !bellpiano Wl8 v10 l4 o5
+GH v15 l4 o5 M0,2,2,1 *1
+K \V63
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+DEGH [r1]8
+K [R0]8
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+DEGH [r1]8
+K [R1]4
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+D [bfed<b>def]4
+EGH [r1]8
+K [R1]4
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+D [bfed<b>def]4
+E [dc<bfdfb>c]4
+GH [r1]8
+K [R1]4
+
+ABC [r1]4
+D bfed<b>def bfed< W0b r2.
+E dc<bfdfb>c dc<bf W0d r2.
+GH [r1]4
+K [R0]3 R2
+
+G f2.ab2.>dc4.<a4.bf2. d8e8f2.ae4.c4.<ab1
+K [R3]7 R4
