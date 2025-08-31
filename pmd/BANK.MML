@@ -1,5 +1,5 @@
 #Title Instrument bank
-#Memo Instruments that I created or adapted
+#Memo Instruments that I created, adapted, or collected
 #Composer Ian Johnson
 #FFFile BANK.FF
 #Option /vw
@@ -27,3 +27,23 @@
   26  10   0  15  15  13   1   4   3   0
   13   8   0  15  15  11   1   2   3   0
   31  13   0  15  15   0   1   1   3   0
+
+; From EFFEC.FF (DGuitar)
+@  4   3   7   =Overdri
+  31   4   1   2   3  33   0   6   4   0
+  31   0   0   2  15  24   2   2  -3   0
+  31  15   0   2   5   0   2   0   4   0
+  31   0   0   6   2   0   0   2  -3   0
+
+; For a ring effect, use M0,1,4,1*2
+@  5   5   7   =PSGFade
+  31   0   0  15  15  29   0   2   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+
+@  0   5   4   =Star
+  31  24   0  12  15  12   0   0   0   0
+  31   7   3   5  15  25   0   8   0   0
+  31   3   0   5  15  22   0   4   0   0
+  31   6   0   5  15   5   0  12   0   0
