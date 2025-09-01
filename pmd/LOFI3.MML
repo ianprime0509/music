@@ -32,12 +32,12 @@ R1 [r4\ir4]2
 
 ABCDEGH _{-b}
 
-A !wave v13 l1 o5
-BCD !ukelele v13 l4 o4
+A !wave v14 l1 o5
+BCD !ukelele v14 l4 o4
 CD o5
-E !steeldrum v10 l8 o5
-G v13 l8 o5 M0,2,2,1 *1 q1
-H v10 l4 o6 M0,2,2,1 *1
+E !steeldrum v11 l8 o5
+G v14 l8 o5 M0,2,2,1 *1 q1
+H v11 l4 o6 M0,2,2,1 *1
 K \V63
 
 A c&c
