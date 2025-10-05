@@ -3,4 +3,6 @@
 *.FF
 *.WAV
 
+.zig-cache
+zig-out
 bin
