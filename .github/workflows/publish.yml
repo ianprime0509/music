@@ -17,7 +17,7 @@ jobs:
       - name: Set up Zig
         uses: mlugg/setup-zig@v2
       - name: Build
-        run: zig build -Doptimize=ReleaseSmall
+        run: zig build -Doptimize=ReleaseSmall -Duse-coi-service-worker
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
