@@ -178,6 +178,7 @@ fn compileMusic(b: *std.Build) void {
         run_mc.addArg(song.source);
         run_mc.addFileInput(b.path(b.fmt("pmd/{s}", .{song.source})));
         run_mc.addCheck(.{ .expect_term = .{ .Exited = 0 } });
+        run_mc.has_side_effects = true;
 
         const copy = b.addInstallFileWithDir(
             b.path(b.fmt("pmd/{s}", .{song.file})),
