@@ -1,4 +1,5 @@
 #include <stdatomic.h>
+#include <stdlib.h>
 
 #include <common/fmplayer_common.h>
 #include <common/fmplayer_drumrom_static.h>
@@ -71,6 +72,93 @@ EXPORT("getFilenameBuf") char *fmplayer_web_get_filename_buf(void) {
   return g.filename_data;
 }
 
+// TODO: logic copied from fmplayer_file.c, needs to be refactored
+static void opna_writereg_dummy(struct fmdriver_work *work, unsigned addr, unsigned data) {
+  (void)work;
+  (void)addr;
+  (void)data;
+}
+
+static unsigned opna_readreg_dummy(struct fmdriver_work *work, unsigned addr) {
+  (void)work;
+  (void)addr;
+  return 0xff;
+}
+
+struct dummy_opna {
+  uint32_t timerb_loop;
+  uint8_t loopcnt;
+};
+
+static uint8_t opna_status_dummy(struct fmdriver_work *work, bool a1) {
+  (void)a1;
+  struct dummy_opna *opna = work->opna;
+  if (!opna->timerb_loop) {
+    if (work->loop_cnt >= opna->loopcnt) {
+      opna->timerb_loop = work->timerb_cnt;
+    } else if (work->timerb_cnt > 0xfffff) {
+      opna->timerb_loop = -1;
+    }
+  }
+  return opna->timerb_loop ? 0 : 2;
+}
+
+static void dummy_work_init(struct fmdriver_work *work, struct dummy_opna *dopna) {
+  work->opna_writereg = opna_writereg_dummy;
+  work->opna_readreg = opna_readreg_dummy;
+  work->opna_status = opna_status_dummy;
+  work->opna = dopna;
+}
+
+static struct driver_pmd *pmd_dup(const struct driver_pmd *pmd) {
+  struct driver_pmd *pmddup = malloc(sizeof(*pmddup));
+  if (!pmddup) return 0;
+  memcpy(pmddup, pmd, sizeof(*pmd));
+  size_t datalen = pmddup->datalen+1;
+  const uint8_t *data = pmddup->data-1;
+  uint8_t *datadup = malloc(datalen);
+  if (!datadup) {
+    free(pmddup);
+    return 0;
+  }
+  memcpy(datadup, data, datalen);
+  pmddup->data = datadup+1;
+  pmddup->datalen = datalen-1;
+  return pmddup;
+}
+
+static void pmd_free(struct driver_pmd *pmd) {
+  if (pmd) {
+    free(pmd->data-1);
+    free(pmd);
+  }
+}
+
+static void calc_loop(struct fmdriver_work *work, int loopcnt) {
+  if ((loopcnt < 1) || (0xff < loopcnt)) {
+    work->loop_timerb_cnt = -1;
+    return;
+  }
+  struct dummy_opna *opna = work->opna;
+  opna->loopcnt = loopcnt;
+  while (!opna->timerb_loop) work->driver_opna_interrupt(work);
+  work->loop_timerb_cnt = opna->timerb_loop;
+}
+
+static void calc_timerb(void) {
+  struct dummy_opna dopna = {0};
+  struct fmdriver_work dwork = {0};
+  struct driver_pmd *pmddup = pmd_dup(&g.fmfile.driver.pmd);
+  if (pmddup) {
+    dummy_work_init(&dwork, &dopna);
+    pmd_init(&dwork, pmddup);
+    calc_loop(&dwork, 1);
+    pmd_free(pmddup);
+    g.work.loop_timerb_cnt = dwork.loop_timerb_cnt;
+  }
+}
+// End of copied logic
+
 EXPORT("loadFile") bool fmplayer_web_load_file(size_t len) {
   // TODO: this is very bare bones
   while (atomic_flag_test_and_set_explicit(&g.opna_flag, memory_order_acquire));
@@ -78,6 +166,7 @@ EXPORT("loadFile") bool fmplayer_web_load_file(size_t len) {
   fmplayer_init_work_opna(&g.work, &g.ppz8, &g.opna, &g.opna_timer, g.adpcm_ram);
   memset(&g.fmfile, 0, sizeof(g.fmfile));
   if (!pmd_load(&g.fmfile.driver.pmd, g.fmfile_data, len)) goto err;
+  calc_timerb();
   pmd_init(&g.work, &g.fmfile.driver.pmd);
   g.work.pcmerror[0] = true;
   g.work.pcmerror[1] = true;
