@@ -6,8 +6,8 @@
     .paths = .{""},
     .dependencies = .{
         .fmplayer = .{
-            .url = "git+https://github.com/ianprime0509/98fmplayer?ref=webgl#fd9bfd0af451c0357aeaff6e0509ba9cc8023ebb",
-            .hash = "N-V-__8AAJQELQBmLogqshjmnuMr0unH5QBcAhsRbqc2KOea",
+            .url = "git+https://github.com/ianprime0509/98fmplayer?ref=webgl#a0326589df2b6635b6b7556f7a9c65f369622a3f",
+            .hash = "N-V-__8AAL8FLQBOXsAIiobo6vOC4_pGy2nV_26PAgSh4Gps",
         },
         .pmdc = .{
             .url = "git+https://github.com/ianprime0509/pmdc?ref=main#b1fc8332eb9ad8a51372034e539675672d54ad02",
