@@ -1,0 +1,45 @@
+#Title Path of the Wind
+#Composer Joe Hisaishi
+#Arranger Ian Johnson
+#Memo From "My Neighbor Totoro"
+#Filename .M2
+#Tempo 60
+#Option /v/c
+
+@  0   5   4   =Star
+  31  24   0  12  15  12   0   0   0   0
+  31   7   3   5  15  25   0   8   0   0
+  31   3   0   5  15  22   0   4   0   0
+  31   6   0   5  15   5   0  12   0   0
+
+@  1   4   7   =Str+Cho
+  20   0   0   4   0  30   0   4  -3   0
+  13   0   0   7   0   0   0   4  -3   0
+  20   0   0   4   0  40   0   4  -3   0
+  13   0   0   7   0   0   0   2  -3   0
+
+@  2   4   7   =BelPian
+  31  15   8   4   2  30   0  12  -3   0
+  31  15   8   6   1   0   0   4   0   0
+  31  15   8   4   2  30   0  12   0   0
+  31  15   8   6   1   0   0   4  -3   0
+
+!star @0 MW0 M0,1,4,1 *1
+!orchestra @2 *0
+
+ABCDEFGHI _{-bea}
+ABCD !star v12 o4 l4
+GHI @8 MW0 M0,1,4,1 *1 o4 v14
+
+A [>c8rcr.  ]2 [<b8rbr.  ]2 r2
+B [r8b8r.b8r]2 [r8f8r.f8r]2 r2
+C [rg8r.g   ]2 [re8r.e   ]2 r2
+GHI [r1]4 r2
+
+ABC !orchestra v14
+A [[r8>c8rcr  ]2 [<r8b8rbr ]2]2
+B [[rb8r.b8r8]2  [rf8r.f8r8]2]2
+C [[r.g8r.g8 ]2  [r.e8r.e8 ]2]2
+G [[<a1      ]2  [g1       ]2]2
+H [[c1       ]2  [<b1      ]2]2
+I [r1]4 [e1]2 [d1]2
