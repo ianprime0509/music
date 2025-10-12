@@ -1,0 +1,241 @@
+#Title One Summer's Day
+#Composer Joe Hisaishi
+#Arranger Ian Johnson
+#Memo From "Spirited Away"
+#Filename .M2
+#Tempo 35
+#Option /v/c
+#Volumedown F+16
+
+; Transcription reference: https://musescore.com/torbybrand/one-summer-s-day-spirited-away
+; (with my own changes/adjustments)
+
+@  0   5   7   =PSGFade
+  31   0   0  15  15  29   0   2   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+
+@  1   5   7   =PSGSus
+  31   0   0   0  15  29   0   2   0   0
+  31   8   5   3   5   0   0   1   0   0
+  31   8   5   4   5   0   0   1   0   0
+  31   8   5   4   5   0   0   1   0   0
+
+@  2   4   7   =BelPian
+  31  15   8   4   2  30   0  12  -3   0
+  31  15   8   6   1   0   0   4   0   0
+  31  15   8   4   2  30   0  12   0   0
+  31  15   8   6   1   0   0   4  -3   0
+
+!psgbass @0 MW0 M0,1,4,1 *1
+!psgsustain @1 MW0 M0,1,4,1 *1
+!bellpiano @2 *0
+
+!ssgbass @4 MW0 M0,1,4,1 *1 q2
+
+ABCDEF !psgbass v12 l1
+A o3 f        e            d            c+
+B o4 r%2cl-%2 <r%2bl-%2    r%2gl-%2     r%3f+l-%3
+C o4 r%4gl-%4  r%4dl-%4    r%4cl-%4    <r%6bl-%6
+D o4 r%6al-%6  r%6el-%6    r%6dl-%6     r%9el-%9
+E o5 r%8el-%8 <r%8gl-%8    r%8fl-%8     r%12al-%12
+F o5 r         r%10cl-%10 <r%10b-l-%10 >r%15dl-%15
+GHI [r1]4
+
+; Note: extra 2 added to the beginning of this line for a more dramatic pause
+ABCDE !psgsustain v11
+F !bellpiano l8 v13
+A o3 f&2&1                 a&1
+B o3 b&2&1                >d&1
+C o4 e&2&1                 g&1
+DE r2[r]4
+F o4 r&2eeeedeaed16d16&4&2 rddddcdgdc<b>c2 <a16b16
+GHI r2[r1]4
+
+A g                f                 e         d2 e2
+B c               <b                 a         g2 a2
+C f                e                 d         c2 d2
+DE [r]4
+F >ccccc4.<a16b16> cccc<b>c4<a16b16 >cccccg4c d1
+GHI [r1]4
+
+F v14
+A o3 f <g               >e c
+B o3 b  r8f2..           a r8a2..
+C o4 e <r4g2.           >d r4d2.
+D o4 r  r4.d2&8          r r4.g2&8
+E [r]4
+F o4 reeeedeaed16d16&4&2 rddddcdgdc<b>c2 <a16b16
+GHI [r1]4
+
+A d                e                 f               <g2
+B a                a                 c                d2
+C e2 d2            d2 c2             e-               f2
+D f2 f2            g                 g2 f2            a-2
+E r                r                 r                r2
+F >ccccc4.<a16b16 >cccc<b>c4<a16b16 >cccccg4f16e-16   d2
+GHI [r1]3 r2
+
+; Main entrance
+CDEF !bellpiano v13 l8
+F v15
+AB r2
+C o2 b4b4
+D o3 e4f4
+E o3 a-4a-4
+F o4 e4f4
+GHI r2
+
+GHI !ssgbass v15 l16
+A o2 f4f4       e4e4        a4a4        g4>c4<
+B o3 r2         r2          r2          r4g4
+G o3 rc4c8.    <rb4b8.     >re4e8.      r2<
+H o3 r8f4f8     r8e4e8      r8a4a8      r2
+I o3 r8.a4a     r8.g+4g+   >r8.c4c      r2<
+C o3 aa4a       a-r4.       r2          r2
+D o4 cc4c      <br4.        r2         <b-4b-r>
+E o4 dd4d       rdc<b       b>c16<a16&4<d4c8e16f16>
+F o4 gg4g       gfed        de16c16&4  <f4e>e16f16
+
+GHI !ssgbass v15 l16
+A f4f4       e4e4        a4a4        >c2<
+B r2         r2          r2          >e2<
+G rc4c8.    <rb4b8.     >re4e8.      r2<
+H r8f4f8     r8e4e8      r8a4a8      r2
+I r8.a4a     r8.g+4g+   >r8.c4c      r2<
+C aaaa       g+r4.       r2          r2
+D cccc       br4.        r2          r2
+E dddd       rdc<b       b>c&2<ar>
+F gggg       gfed        de&2cd
+
+A d2    r2 g2 g2      d        c2 d4
+B >d2   r2 d2 d2      d        d2 e4
+C r1       r1         r1       c2 d4
+D f+4.r r2 <a4a4f4r4> f+4.r r2 d2 e4
+E c4.r  r2 <c4c4a4r4> c4.r  r2 f2 g+4
+F e4.<a>c2 <e4f4d4>cd e4.<a>c2<a2 b4
+GHI [r1]3                      r2.
+
+; Theme transition
+A o3 r4 a2 g2         f2 e2     e-2 d2    e-2 g4
+B o4 r4 e2 e2         c2 c2     c2  c2   <b2  d4
+CDE  r4 [r1]3                             r2.
+F o4 ab >ccdc<b4eg    aagfg4.<g gffe-f4cf g4.a-g4
+GHI  r4 [r1]3                             r2.
+
+A o3 r4 a4a4   g4g4   f4f4   e4e4   e-4e-4 d4d4 d-4d-4 c4c4
+B    r4 [r1]4
+G o3 r4 re4e8. re4e8. rc4c8. rc4c8. rg4g8. rf4f8. rf4f8. re4e8.
+H o4 r4 r8c4c8<r8b4b8 r8a4a8 r8g4g8>r8c4c8 r8c4c8<r8b-4b-8 r8b-4b-8
+I o3 r4 r8.e4e r8.e4e r8.c4c r8.c4c r8.g4g r8.f4f r8.f4f r8.e4e
+C o3 ab >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+D o4 r4 eerre4rr      ccrrc4.r      r1         r1
+E o4 r4 aarra4rr      eerrd4.r      r1         r1
+F o4 ab >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+
+A f4f4 e-4e-4 d4d4>c4c4<g4g4 >b2
+B [r1]3
+G rc4c8. rc4c8. rd4d8. ra-4a-8. rd4d8. r2
+H r8a-4a-8 r8g4g8 r8f4f8 r8f4f8 r8g4g8 r2
+I r8.c4c r8.c4c r8.a-4a- r8.a-4a- r8.b4b r2
+C >c2r4<a-b-> c2rc<b>c d2r2
+D f2r2        f2r2     r1
+E a-2r2       a-2r2    r1
+F >c2r4<a-b-> c2rc<b>c d2r<g>c<b>
+
+A f f r2
+B a a r2
+C !psgsustain v11 b1 b1 r2 !bellpiano v13
+D !psgsustain v11 c1 r1 r4. !bellpiano v13 d
+E [r1]2r4.g
+F c4.<eedeaeaaaaga>d<b4a>c
+GHI [r1]2r2
+
+A o3 e4e4e4e4 f+4f+4f+4f+4 d4d4d4d4 e4e4e4e4
+G o3 rg4g4g4g8. ra4a4a4a8. rf4f4f4f8. rg4g4g4g8.
+H o3 r8a4a4a4a8 r8b4b4b4b8 r8g4g4g4g8 r8a4a4a4a8
+I o4 r8.d4d4d4d r8.e4e4e4e r8.c4c4c4c r8.d4d4d4d
+B [r1]3   t33r4t31r4t29r4t27r4
+C r1      r1    >g2g4c4 d2e2
+DE &x2.r4  [r1]3
+F &c2.<b4 g4a2. >g2g4c4 d2e2
+
+ABCDEFGHI &x4r2 t35
+
+ABCDEF !psgbass v12 l1
+F v14
+A o2 f e e-2.e-4 a
+B o3 f e e-2.e-4 a
+C o3 r g r      >d
+D o3 a>c c2.c4   e
+E o3 b>d f2.f4   a
+F o4 e g b-2.b-4>c
+GHI [r1]4
+
+ABCDEF &x
+GHI r1
+
+ABCD !psgsustain v9 l1
+E !bellpiano v11 l8
+F !bellpiano v13 l8
+A o3 f e d     <b2>e4
+B o3 a g r8b2.. r8f+4.r4
+C o4 e d r4d2. <r4a4r4
+D o4 r r r4.e8&2 <r4.b8r4
+E o3 r1r1r1     f+2d4
+F o4 edeae2 dcdgd4.<a16b16 >c2<ab>cd e2<a-4>
+GHI [r1]3r2.
+
+; Theme repeat
+AB !psgsustain v11 l1
+CDEF !bellpiano v13 l8
+F v15
+
+A o3 r4 a4a4 g4g4 f4f4 e4e4 e-4e-4 d4d4 e-2<g2
+B o3 r4 r1        r1        r1          r2d2
+G o3 r4 re4e8. re4e8. rc4c8. rc4c8.<rg4g8. rf4f8. r1
+H o4 r4 r8c4c8<r8b4b8 r8a4a8 r8g4g8 r8c4c8 r8c4c8 r1
+I o3 r4 r8.e4e r8.e4e r8.c4c r8.c4c<r8.g4g r8.f4f r1
+C    r4 [r1]4
+D o2 r4  r1           r1        r1        b4.ba4  r4
+E o4 r4  aabag4ce     ffede4.r  r1       <e-4.fd4 r4
+F o4 ab >ccdc<b4eg    aagfg4.<g gffe-f4cf g4.a-g4>ab
+
+A o3 a4a4   g4g4   f4f4   e4e4   e-4e-4 d4d4 d-4d-4 c4c4
+B    [r1]4
+G o3 re4e8. re4e8. rc4c8. rc4c8. rg4g8. rf4f8. rf4f8. re4e8.
+H o4 r8c4c8<r8b4b8 r8a4a8 r8g4g8>r8c4c8 r8c4c8<r8b-4b-8 r8b-4b-8
+I o3 r8.e4e r8.e4e r8.c4c r8.c4c r8.g4g r8.f4f r8.f4f r8.e4e
+C o3 >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+D o4 eerre4rr      ccrrc4.r      r1         r1
+E o4 aarra4rr      eerrd4.r      r1         r1
+F o4 >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+
+A f4f4 e-4e-4 d4d4>c4c4<g4g4 >b2
+B [r1]3
+G rc4c8. rc4c8. rd4d8. ra-4a-8. rd4d8. r2
+H r8a-4a-8 r8g4g8 r8f4f8 r8f4f8 r8g4g8 r2
+I r8.c4c r8.c4c r8.a-4a- r8.a-4a- r8.b4b r2
+C >c2r4<a-b-> c2rc<b>c d2r2
+D f2r2        f2r2     r1
+E a-2r2       a-2r2    r1
+F >c2r4<a-b-> c2rc<b>c d2r<g>c<b>
+
+; Outro
+ABCD !psgsustain v10
+A o3 f1&4
+B o3 a1&4
+C o3 b1&4
+D o4 e1&4
+E o2 r4fab>eab>ab
+F o5 c1&4
+G r4t33r4t31r4t29r4t27r4t25
+HI r1r4
+
+CDEF !bellpiano v13
+ABGHI [r1]2
+C o4 f1&1
+D o4 r%2a1l-%2&1
+E o4 r%4b1l-%4&1
+F o5 r%6e1l-%6&1

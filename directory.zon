@@ -3,5 +3,6 @@
         .{ .file = "LOFI.M2", .source = "LOFI.MML", .title = "Memories" },
         .{ .file = "LOFI2.M2", .source = "LOFI2.MML", .title = "Chilling" },
         .{ .file = "LOFI3.M2", .source = "LOFI3.MML", .title = "A Day at the Beach" },
+        .{ .file = "SASUMMER.M2", .source = "SASUMMER.MML", .title = "One Summer's Day" },
     },
 }
