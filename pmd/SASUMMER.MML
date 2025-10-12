@@ -191,15 +191,26 @@ GHI [r1]3r2.
 AB !psgsustain v11 l1
 CDEF !bellpiano v13 l8
 F v15
-A o3 r4 a4a4   g4g4   f4f4   e4e4   e-4e-4 d4d4 d-4d-4 c4c4
-B    r4 [r1]4
-G o3 r4 re4e8. re4e8. rc4c8. rc4c8. rg4g8. rf4f8. rf4f8. re4e8.
-H o4 r4 r8c4c8<r8b4b8 r8a4a8 r8g4g8>r8c4c8 r8c4c8<r8b-4b-8 r8b-4b-8
-I o3 r4 r8.e4e r8.e4e r8.c4c r8.c4c r8.g4g r8.f4f r8.f4f r8.e4e
-C o3 ab >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
-D o4 r4 eerre4rr      ccrrc4.r      r1         r1
-E o4 r4 aarra4rr      eerrd4.r      r1         r1
-F o4 ab >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+
+A o3 r4 a4a4 g4g4 f4f4 e4e4 e-4e-4 d4d4 e-2<g2
+B o3 r4 r1        r1        r1          r2d2
+G o3 r4 re4e8. re4e8. rc4c8. rc4c8.<rg4g8. rf4f8. r1
+H o4 r4 r8c4c8<r8b4b8 r8a4a8 r8g4g8 r8c4c8 r8c4c8 r1
+I o3 r4 r8.e4e r8.e4e r8.c4c r8.c4c<r8.g4g r8.f4f r1
+C    r4 [r1]4
+D o2 r4  r1           r1        r1        b4.ba4  r4
+E o4 r4  aabag4ce     ffede4.r  r1       <e-4.fd4 r4
+F o4 ab >ccdc<b4eg    aagfg4.<g gffe-f4cf g4.a-g4>ab
+
+A o3 a4a4   g4g4   f4f4   e4e4   e-4e-4 d4d4 d-4d-4 c4c4
+B    [r1]4
+G o3 re4e8. re4e8. rc4c8. rc4c8. rg4g8. rf4f8. rf4f8. re4e8.
+H o4 r8c4c8<r8b4b8 r8a4a8 r8g4g8>r8c4c8 r8c4c8<r8b-4b-8 r8b-4b-8
+I o3 r8.e4e r8.e4e r8.c4c r8.c4c r8.g4g r8.f4f r8.f4f r8.e4e
+C o3 >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
+D o4 eerre4rr      ccrrc4.r      r1         r1
+E o4 aarra4rr      eerrd4.r      r1         r1
+F o4 >ccdc<b4eg    aagfg4.g      gffe-f4ga- b-a-a-ga-4g12a-12b-12
 
 A f4f4 e-4e-4 d4d4>c4c4<g4g4 >b2
 B [r1]3
