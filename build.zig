@@ -57,6 +57,8 @@ fn buildSite(b: *std.Build) void {
         .root = fmplayer_dep.path("."),
         .files = &.{
             "common/fmplayer_drumrom_static.c",
+            "common/fmplayer_file.c",
+            "common/fmplayer_file_js.c",
             "common/fmplayer_work_opna.c",
             "libopna/opnaadpcm.c",
             "libopna/opnadrum.c",
@@ -73,7 +75,7 @@ fn buildSite(b: *std.Build) void {
             "fmdsp/fmdsp-pacc.c",
             "fmdsp/font_fmdsp_small.c",
             "fmdsp/font_rom.c",
-            "fmdsp/fmdsp_platform_wasi.c",
+            "fmdsp/fmdsp_platform_js.c",
             "pacc/pacc-js.c",
         },
         .flags = &.{
@@ -130,11 +132,6 @@ fn buildSite(b: *std.Build) void {
     exe.shared_memory = true;
     exe.stack_size = 8 * 1024 * 1024;
 
-    b.getInstallStep().dependOn(&b.addInstallFileWithDir(
-        fmplayer_dep.path("pacc/pacc-js.js"),
-        .prefix,
-        "pacc-js.js",
-    ).step);
     const static_files: []const []const u8 = &.{
         "index.html",
         "index.js",
@@ -148,6 +145,20 @@ fn buildSite(b: *std.Build) void {
             static_file,
         ).step);
     }
+    const extern_static_files: []const []const u8 = &.{
+        "common/fmplayer_file_js.js",
+        "fmdsp/fmdsp_platform_js.js",
+        "pacc/pacc-js.js",
+    };
+    for (extern_static_files) |path| {
+        const name = std.fs.path.basenamePosix(path);
+        b.getInstallStep().dependOn(&b.addInstallFileWithDir(
+            fmplayer_dep.path(path),
+            .prefix,
+            name,
+        ).step);
+    }
+
     b.getInstallStep().dependOn(&b.addInstallFileWithDir(
         exe.getEmittedBin(),
         .prefix,

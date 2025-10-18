@@ -1,5 +1,9 @@
+import { imports as fileImports } from "./fmplayer_file_js.js";
+import { imports as platformImports } from "./fmdsp_platform_js.js";
 import { imports as paccImports } from "./pacc-js.js";
 import { imports as wasiImports } from "./wasi.js";
+
+const files = {};
 
 const canvas = document.getElementById("fmdsp");
 const gl = canvas.getContext("webgl");
@@ -12,6 +16,8 @@ const memory = new WebAssembly.Memory({
 });
 const wasm = await WebAssembly.instantiate(source, {
   env: { memory },
+  fmplayer_file: fileImports(memory, files),
+  fmdsp_platform: platformImports(),
   pacc: paccImports(memory, gl),
   wasi_snapshot_preview1: wasiImports(memory),
 }).then((r) => r.instance);
@@ -56,12 +62,13 @@ directory.pmd.forEach((song, i) => {
 
   radio.addEventListener("click", async () => {
     const data = await fetch(song.file).then((r) => r.arrayBuffer());
-    const fileBuf = new Uint8Array(memory.buffer, wasm.exports.getFileBuf(), 0xffff);
-    fileBuf.set(new Uint8Array(data));
-    // TODO: need to encode using Shift JIS
+    for (const file in files) delete files[file];
+    files[song.file] = new Uint8Array(data);
+
     const filenameBuf = new Uint8Array(memory.buffer, wasm.exports.getFilenameBuf(), 128);
     filenameBuf.set(utf8Encoder.encode(song.file + "\0"));
-    wasm.exports.loadFile(data.byteLength);
+
+    wasm.exports.loadFile();
     audioCtx.resume();
   });
 });

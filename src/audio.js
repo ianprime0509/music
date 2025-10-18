@@ -1,3 +1,5 @@
+import { imports as fileImports } from "./fmplayer_file_js.js";
+import { imports as platformImports } from "./fmdsp_platform_js.js";
 import { imports as paccImports } from "./pacc-js.js";
 import { imports as wasiImports } from "./wasi.js";
 
@@ -14,6 +16,8 @@ class AudioProcessor extends AudioWorkletProcessor {
     this.memory = memory;
     this.wasm = new WebAssembly.Instance(module, {
       env: { memory },
+      fmplayer_file: fileImports({}),
+      fmdsp_platform: platformImports(),
       pacc: paccImports(memory, null),
       wasi_snapshot_preview1: wasiImports(memory),
     });

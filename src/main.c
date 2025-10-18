@@ -29,9 +29,8 @@ static struct {
   struct ppz8 ppz8;
   struct fmdriver_work work;
   char adpcm_ram[OPNA_ADPCM_RAM_SIZE];
-  struct fmplayer_file fmfile;
-  uint8_t fmfile_data[0xffff];
-  char filename_data[128];
+  char filename_buf[128];
+  struct fmplayer_file *fmfile;
   struct fmdsp_font font98;
   atomic_flag at_fftdata_flag;
   struct fmplayer_fft_data at_fftdata;
@@ -64,116 +63,23 @@ err:
   return false;
 }
 
-EXPORT("getFileBuf") uint8_t *fmplayer_web_get_file_buf(void) {
-  return g.fmfile_data;
-}
-
 EXPORT("getFilenameBuf") char *fmplayer_web_get_filename_buf(void) {
-  return g.filename_data;
+  return g.filename_buf;
 }
 
-// TODO: logic copied from fmplayer_file.c, needs to be refactored
-static void opna_writereg_dummy(struct fmdriver_work *work, unsigned addr, unsigned data) {
-  (void)work;
-  (void)addr;
-  (void)data;
-}
-
-static unsigned opna_readreg_dummy(struct fmdriver_work *work, unsigned addr) {
-  (void)work;
-  (void)addr;
-  return 0xff;
-}
-
-struct dummy_opna {
-  uint32_t timerb_loop;
-  uint8_t loopcnt;
-};
-
-static uint8_t opna_status_dummy(struct fmdriver_work *work, bool a1) {
-  (void)a1;
-  struct dummy_opna *opna = work->opna;
-  if (!opna->timerb_loop) {
-    if (work->loop_cnt >= opna->loopcnt) {
-      opna->timerb_loop = work->timerb_cnt;
-    } else if (work->timerb_cnt > 0xfffff) {
-      opna->timerb_loop = -1;
-    }
-  }
-  return opna->timerb_loop ? 0 : 2;
-}
-
-static void dummy_work_init(struct fmdriver_work *work, struct dummy_opna *dopna) {
-  work->opna_writereg = opna_writereg_dummy;
-  work->opna_readreg = opna_readreg_dummy;
-  work->opna_status = opna_status_dummy;
-  work->opna = dopna;
-}
-
-static struct driver_pmd *pmd_dup(const struct driver_pmd *pmd) {
-  struct driver_pmd *pmddup = malloc(sizeof(*pmddup));
-  if (!pmddup) return 0;
-  memcpy(pmddup, pmd, sizeof(*pmd));
-  size_t datalen = pmddup->datalen+1;
-  const uint8_t *data = pmddup->data-1;
-  uint8_t *datadup = malloc(datalen);
-  if (!datadup) {
-    free(pmddup);
-    return 0;
-  }
-  memcpy(datadup, data, datalen);
-  pmddup->data = datadup+1;
-  pmddup->datalen = datalen-1;
-  return pmddup;
-}
-
-static void pmd_free(struct driver_pmd *pmd) {
-  if (pmd) {
-    free(pmd->data-1);
-    free(pmd);
-  }
-}
-
-static void calc_loop(struct fmdriver_work *work, int loopcnt) {
-  if ((loopcnt < 1) || (0xff < loopcnt)) {
-    work->loop_timerb_cnt = -1;
-    return;
-  }
-  struct dummy_opna *opna = work->opna;
-  opna->loopcnt = loopcnt;
-  while (!opna->timerb_loop) work->driver_opna_interrupt(work);
-  work->loop_timerb_cnt = opna->timerb_loop;
-}
-
-static void calc_timerb(void) {
-  struct dummy_opna dopna = {0};
-  struct fmdriver_work dwork = {0};
-  struct driver_pmd *pmddup = pmd_dup(&g.fmfile.driver.pmd);
-  if (pmddup) {
-    dummy_work_init(&dwork, &dopna);
-    pmd_init(&dwork, pmddup);
-    calc_loop(&dwork, 1);
-    pmd_free(pmddup);
-    g.work.loop_timerb_cnt = dwork.loop_timerb_cnt;
-  }
-}
-// End of copied logic
-
-EXPORT("loadFile") bool fmplayer_web_load_file(size_t len) {
-  // TODO: this is very bare bones
+EXPORT("loadFile") bool fmplayer_web_load_file() {
   while (atomic_flag_test_and_set_explicit(&g.opna_flag, memory_order_acquire));
+  if (g.fmfile) fmplayer_file_free(g.fmfile);
   memset(g.adpcm_ram, 0, sizeof(g.adpcm_ram));
   fmplayer_init_work_opna(&g.work, &g.ppz8, &g.opna, &g.opna_timer, g.adpcm_ram);
-  memset(&g.fmfile, 0, sizeof(g.fmfile));
-  if (!pmd_load(&g.fmfile.driver.pmd, g.fmfile_data, len)) goto err;
-  calc_timerb();
-  pmd_init(&g.work, &g.fmfile.driver.pmd);
-  g.work.pcmerror[0] = true;
-  g.work.pcmerror[1] = true;
-  g.work.pcmerror[2] = true;
+  g.fmfile = fmplayer_file_alloc(g.filename_buf, 0);
+  if (!g.fmfile) goto err;
+  fmplayer_file_load(&g.work, g.fmfile, 1);
   atomic_flag_clear_explicit(&g.opna_flag, memory_order_release);
 
-  fmdsp_pacc_set_filename_sjis(g.fp, g.filename_data);
+  if (g.fmfile->filename_sjis) {
+    fmdsp_pacc_set_filename_sjis(g.fp, g.fmfile->filename_sjis);
+  }
   fmdsp_pacc_update_file(g.fp);
   fmdsp_pacc_comment_reset(g.fp);
 
