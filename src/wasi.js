@@ -1,7 +1,4 @@
-const EINVAL = 28;
 const ENOTSUP = 58;
-
-const CLOCK_MONOTONIC = 1;
 
 /**
  * @param {WebAssembly.Memory} memory 
@@ -10,18 +7,8 @@ export function imports(memory) {
   return {
     args_get() { return ENOTSUP; },
     args_sizes_get() { return ENOTSUP; },
-    clock_res_get(id, timestampPtr) {
-      if (id !== CLOCK_MONOTONIC) return EINVAL;
-      const timestamp = new DataView(memory.buffer, timestampPtr);
-      timestamp.setBigUint64(0, 1_000_000_000n, true);
-      return 0;
-    },
-    clock_time_get(id, _precision, timestampPtr) {
-      if (id !== CLOCK_MONOTONIC) return EINVAL;
-      const timestamp = new DataView(memory.buffer, timestampPtr);
-      timestamp.setBigUint64(0, BigInt(Math.round(performance.now() * 1_000_000)), true);
-      return 0;
-    },
+    clock_res_get() { return ENOTSUP; },
+    clock_time_get() { return ENOTSUP; },
     environ_get() { return ENOTSUP; },
     environ_sizes_get() { return ENOTSUP; },
     fd_advise() { return ENOTSUP; },
@@ -45,7 +32,9 @@ export function imports(memory) {
     fd_sync() { return ENOTSUP; },
     fd_tell() { return ENOTSUP; },
     fd_write(_fd, iovsPtr, iovsLen, sizePtr) {
-      // Temporary stub implementation that writes nothing
+      // Stub implementation that writes nothing.
+      // In debug mode, some functionality (e.g. ubsan) expects to be able to
+      // write to stderr, and will misbehave if we just return ENOTSUP.
       const iovs = new DataView(memory.buffer, iovsPtr);
       let n = 0;
       for (let i = 0; i < iovsLen; i++) {
