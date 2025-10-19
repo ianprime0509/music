@@ -97,7 +97,7 @@ function setUpRecording() {
   recordButton.textContent = "Record";
   canvas.after(recordButton);
 
-  const mimeType = "video/webm;codecs=vp8,opus";
+  const mimeType = "video/webm;codecs=vp9,opus";
   if (!MediaRecorder.isTypeSupported(mimeType)) {
     recordButton.disabled = true;
     recordButton.title = "Not supported";
