@@ -107,6 +107,10 @@ EXPORT("getAudioBuf") int16_t *fmplayer_web_get_audio_buf(void) {
   return g.audio_buf;
 }
 
+EXPORT("playing") bool fmplayer_web_playing(void) {
+  return g.work.playing;
+}
+
 EXPORT("togglePaused") void fmplayer_web_toggle_paused(void) {
   g.work.paused = !g.work.paused;
 }
