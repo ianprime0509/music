@@ -43,7 +43,7 @@ fn buildSite(b: *std.Build) void {
         "Use cross-origin isolation service worker hack",
     ) orelse false;
 
-    const fmplayer_dep = b.dependency("fmplayer", .{});
+    const fmplayer_dep = b.dependency("98fmplayer", .{});
 
     const fmplayer_mod = b.createModule(.{
         .target = target,
@@ -83,7 +83,7 @@ fn buildSite(b: *std.Build) void {
             "-Wextra",
             "-Werror",
             "-pedantic",
-            "-std=c11",
+            "-std=c99",
             "-fno-sanitize=shift",
             "-Wno-unknown-attributes", // due to optimize attribute
         },

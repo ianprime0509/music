@@ -5,9 +5,9 @@
     .minimum_zig_version = "0.15.1",
     .paths = .{""},
     .dependencies = .{
-        .fmplayer = .{
-            .url = "git+https://github.com/ianprime0509/98fmplayer?ref=webgl#73de63c86044338489e3b12ad86282a52d17a51d",
-            .hash = "N-V-__8AAFwSLQBiUIfME5o3o_4_U6x8otLmB2JKVC01yJXy",
+        .@"98fmplayer" = .{
+            .url = "git+https://github.com/ianprime0509/98fmplayer?ref=master#6f6d579a066dbd71e99c8f474a67a7545734a44f",
+            .hash = "N-V-__8AAFYjLgCoMQXD39vUkfUA1uDVvL9vLitVNQABjEWN",
         },
         .pmdc = .{
             .url = "git+https://github.com/ianprime0509/pmdc?ref=main#b1fc8332eb9ad8a51372034e539675672d54ad02",
