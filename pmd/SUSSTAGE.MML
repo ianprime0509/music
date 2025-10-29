@@ -1,0 +1,146 @@
+#Option /v/c
+#Tempo 80
+#Volumedown F+16
+
+@  0   5   7   =PSGFade
+  31   0   0  15  15  29   0   2   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+  31   8   0  15  15   0   0   1   0   0
+
+@  1   3   7   =DGuitar
+  31   4   1   2   3  32   0   6  -3   0
+  31   0   0   2  15  25   2   2  -3   0
+  31  15   0   2   5   0   2   0  -3   0
+  31   0   0   6   2   0   0   2  -3   0
+
+@  2   4   7   =BelPian
+  31  15   8   4   2  30   0  12  -3   0
+  31  15   8   6   1   0   0   4   0   0
+  31  15   8   4   2  30   0  12   0   0
+  31  15   8   6   1   0   0   4  -3   0
+
+@  3   0   6   =EBass
+  28  17  18   7   4  32   0  10   6   0
+  31  14   6   7   2  38   1   0  -3   0
+  31  14   6   7   2  28   1   0   6   0
+  31  16   4   7   1   0   1   1  -3   0
+
+@  4   4   7   =Brass
+  18  16   0   8   1  24   0   8  -3   0
+  24   8   0  10   3   0   0   8  -3   0
+  18  16   0   8   1  20   0   8  -3   0
+  24   8   0  10   3   0   0   8  -3   0
+
+!ring @0 M0,1,4,1 *2
+!dguitar @1 *0
+!bellpiano @2 *0
+!bass @3 *0
+!trumpet @4 *0
+
+!ssgstrings @7 M0,2,2,1 *1
+
+R0 r1
+R1 l8 @1xxx@2x @1xx@2x@1x x@2x@1xx @2x@1x@2xx
+R2 l8 @1x4.@3x4.xx16x16
+R3 l16 @1x4x4@3xxxxxxxx
+R4 l8 @1x.x.x@257x.x.x@259x2.@2x16x16x16x16
+R5 l4 @1xxxx xxl16@257xx@129x@259xxxxx
+
+ABCDEFGH _{+fc}
+A !ring v11 l4 o5
+B !ring v11 l4 o3
+C !dguitar v12 l1 o4
+D !bass v14 l4 o4
+E !bellpiano Wl8 v13 l4 o4
+F !bellpiano Wl8 v12 l4 o5
+GH !ssgstrings v15 l4 o4
+K \V56
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+;D d&d d&d2.&{d<g}2&g2.&g g&g
+DEFGH [r1]8
+K [R0]8
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+DEFGH [r1]8
+K [R1]4
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+EF [bfed<b>def]4
+DGH [r1]8
+K [R1]4
+
+A d4.d4.d4.c4.cc e4.e4.e4.d4.dc d4.d4.d4.c4.cc e4.e4.e4.d4.dc
+B b4.b4.b4.b4.bb b4.b4.b4.b4.b b8&{b g}4&g4g4.g4.g4.gg g4.g4.g4.g4.gg
+C f&f f&f2.&{f b}2&b2.&b b&b
+E [bfed<b>def]4
+F [dc<bfdfb>c]4
+DGH [r1]8
+K [R1]4
+
+ABC [r1]4
+E bfed<b>def bfed< W0b r2.
+F dc<bfdfb>c dc<bf W0d r2.
+DGH [r1]4
+K [R0]4
+
+A !dguitar v12
+CD !bass v14 o4 l4
+A [b16b16bb16b16bb16b16b8]2 [a16a16aa16a16aa16a16a8]2 [d16d16dd16d16dd16d16d8]2 f16f16ff16f16ff16f16f8 b16b16bb16b16ba16a16a8
+B d1d1 c1c1 d1d1 f1f1
+C [<b16>d16f<b16>d16f2]2 [<a16>c16e<a16>c16e2]2 [<b16>d16f<b16>d16f2]2 [<b16>d16b<b16>d16b2]2
+D [b4.b4.b16f16e16f16]2 [a4.a4.a16f16e16f16]2 [b4.b4.b16f16e16f16]2 [>d4.d4.d16<b16a16b16]2
+G f1&1e1a2..&{af}8&f1&1b1 r4fb>c
+H d1&1c1e2..&{e<b}8&b1&1d1 r4<b>de
+EF [r1]8
+K [R2]8
+
+A [g16g16gg16g16gg16g16g8]2 [a16a16aa16a16aa16a16a8]2 [b16b16bb16b16bb16b16b8]2 e16e16ee16e16ee16e16e8 c16c16cc16c16cc16c16c8
+B g1g1 e1e1 f1f1 c1e1
+C [<b16>d16g<b16>d16g2]2 [<a16>c16e<a16>c16e2]2 [<b16>d16f<b16>d16f2]2 c16e16g+c16e16g+2 c16e16gc16e16g2
+D [g4.g4.g16e16d16e16]2 [a4.a4.a16f16e16f16]2 [f4.f4.f16e16d16e16]2 g+4.g+4.g+16e16c16e16 g4.g4.g16e16c16e16
+G d1&1c1<a1 q4a8b8q0b2.&1>c1<a+1
+H f1&1e1c1 q4c8d8q0d2.&1e1c1
+EF [r1]8
+K [R2]8
+
+A [b16b16bb16b16bb16b16b8]2 [a16a16aa16a16aa16a16a8]2 [d16d16dd16d16dd16d16d8]2 f16f16ff16f16ff16f16f8 b16b16bb16b16ba16a16a8
+B d1d1 c1c1 d1d1 f1f1
+C [<b16>d16f<b16>d16f2]2 [<a16>c16e<a16>c16e2]2 [<b16>d16f<b16>d16f2]2 [<b16>d16b<b16>d16b2]2
+D [b4.b4.b16f16e16f16]2 [a4.a4.a16f16e16f16]2 [b4.b4.b16f16e16f16]2 [>d4.d4.d16<b16a16b16]2
+G f1&1e1a2..&{af}8&f1&1b1 r4fb>c
+H d1&1c1e2..&{e<b}8&b1&1d1 r4<b>de
+EF [r1]8
+K [R2]8
+
+A [g16g16gg16g16gg16g16g8]2 [a16a16aa16a16aa16a16a8]2 [b16b16bb16b16bb16b16b8]2 e16e16ee16e16ee16e16e8 c16c16cc16c16cc16c16c8
+B g1g1 e1e1 f1f1 c1f1
+C [<b16>d16g<b16>d16g2]2 [<a16>c16e<a16>c16e2]2 [<b16>d16f<b16>d16f2]2 c16e16g+c16e16g+2 c16f16a+c16f16a+2
+D [g4.g4.g16e16d16e16]2 [a4.a4.a16f16e16f16]2 [f4.f4.f16e16d16e16]2 g+4.g+4.g+16e16c16e16 f4.f4.g16e16c16e16
+G d1&1c1<a1 q4a8b8q0b2.&1>c2..&{cf}4&f2..
+H f1&1e1c1 q4c8d8q0d2.&1e2..&{ea+}4a+2..
+EF [r1]8
+K [R2]7 R3
+
+B d2c2d1 d2c2d1
+C l4 e16f16be16f16 e16f16>c<e16f16 e16f16>d2..< e16f16be16f16 e16f16>c<e16f16 e16f16>d2..<
+D l8 b8.f16e16f16b8 >c8.<f16e16f16>c8 d2dc<ba b8.f16e16f16b8 >c8.<f16e16f16>c8 d2dc<ba
+G q2 d2e2f1 d2e2f1 q0
+H q2 g2a2b1 g2a2b1 q0
+EF [r1]4
+K [R4]2
+
+B d2c2d1 d2c2d+1
+C l4 e16f16be16f16 e16f16>c<e16f16 e16f16>d2..< e16f16be16f16 e16f16>c<e16f16 e16f16>d+2..<
+D l8 b8.f16e16f16b8 >c8.<f16e16f16>c8 d2dc<ba b8.f16e16f16b8 >c8.<f16e16f16>c8 d+1
+G q2 d2e2f1 d2e2f1 q0
+H q2 g2a2b1 g2a2b1 q0
+EF [r1]4
+K R4R5
