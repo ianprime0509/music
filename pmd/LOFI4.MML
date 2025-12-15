@@ -1,0 +1,116 @@
+#Title Peaceful Town
+#Composer Ian Johnson
+#Arranger Ian Johnson
+#Filename .M2
+#Option /v/c
+#Tempo 80
+#VolumeDown F+16
+
+@  0   5   4   =Star
+  31  24   0  12  15  12   0   0   0   0
+  31   7   3   5  15  25   0   8   0   0
+  31   3   0   5  15  22   0   4   0   0
+  31   6   0   5  15   5   0  12   0   0
+
+@  1   4   0   =Bass
+  31   0   0   3  15  15   0   0   0   0
+  31  15   0   8  15   0   0   0   0   0
+  31   6   0   1  11  22   0   0   0   0
+  31   8   0   9  15   0   0   1   0   0
+
+; EFFEC.FF
+@  2   4   7   =SynStr
+  20   8   0   2   0  31   0   4  -3   0
+  14   8   1   7   1   0   0   8  -3   1
+  20   8   0   2   0  31   0   4  -3   0
+  14   8   1   7   1   0   0   8  -3   1
+
+!star @0 M0,3,2,2 *5
+!bass @1 *0
+!strings @2 M0,3,2,3 *5
+
+!ssgsynth @1 M0,2,3,2 *5
+
+R0 r1
+R1 @1xx@34x@1x
+
+ABCDEFGHK L
+
+ABCDEFGH _{+f}
+ABCD !star v12 q1
+E !bass v12 l8
+F !strings v12 l8
+GH !ssgsynth v15
+G v13
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+EFGH [r1]8
+K [R0]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+FGH [r1]8
+K [R1]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+FGH [r1]8
+K [R1]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+F [r1]8
+G o3 d1g2b2b1g2d2 f=8g8r8f=8&2&1 f=8g8r8a8&2&1
+H o3 g1b2>d2e1d2<b2 a8b8r8a8&2&1 a8b8r8>c8&2&1<
+K [R1]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+F [r1]7 o4 g1
+G o3 d1g2b2b1g2d2 f=8g8r8f=8&2&1 f=8g8r8a8&2&1
+H o3 g1b2>d2e1d2<b2 a8b8r8a8&2&1 a8b8r8>c8&2&1<
+K [R1]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+F o4 f1a1b1>d1 c4<b8a4g4a8&1 a4b8>c4d4c4.<b4a4g4
+G o3 d1g2b2b1g2d2 f=8g8r8f=8&2&1 f=8g8r8a8&2&1
+H o3 g1b2>d2e1d2<b2 a8b8r8a8&2&1 a8b8r8>c8&2&1<
+K [R1]8
+
+A o3 [g4.g4r8g4&1]2 [f=4.f=4r8f=4&1]2
+B o3 [b4.b4r8b4&1]2 [a4.a4r8a4&1]2
+C o4 [d4.d4r8c+4&1]2[c4.c4r8<b4&1>]2
+D o4 [f4.f4r8f4&1]2 e4.e4r8e4&1e4. e4r8e4&2e8f=4.
+E o3 [g4.g8r2r4.gb>d4.<]2 f=4.f=8r2r2e2 f=4.f=8r2r2a2
+F o4 f1a1b1>d1 c4<b8a4g4a8&1 a4b8>c4d4c4.<b4a4>c4
+G o3 d1g2b2b1g2d2 f=8g8r8f=8&2&1 f=8g8r8a8&2&1
+H o3 g1b2>d2e1d2<b2 a8b8r8a8&2&1 a8b8r8>c8&2&1<
+K [R1]8
+
+A o3 d1 d1 d1 d1 c1&1 d1&1
+B o3 a1 a1 g1 g1 g1&1 f1&1
+C !strings v10q0 o4 d1 c1 <b-1 a1 a1&1 a1&1
+D !strings v10q0 o4 g1 f=1 e-1 c1 c1&1 c1&1
+E !strings v10q0 o4 b1 a1 g1 f=1 d1&1 d1&1
+F !strings v10q0 o5 d1 c1 <b-1 a1 g1&1 f1&1
+GH [r1]8
+K [R0]8
