@@ -22,6 +22,35 @@ enum {
   MAX_SAMPLES = 128,
 };
 
+enum {
+  VOLUME_INIT = 0x1'0000'0000,
+  VOLUME_FADE = 0x4000,
+};
+
+// Palette colors:
+// 0: background, key background (black keys)
+// 1: text (part info)
+// 2: text (music notes), active control
+// 3: inactive control
+// 4: key background (white keys)
+// 5: black key shading
+// 6: active note key
+// 7: text (subtitle, e.g. "driver" text)
+// 8: active note key (masked)
+// 9: FMDSP logo shading
+static const uint8_t palette[FMDSP_PALETTE_COLORS * 3] = {
+  0, 0, 0,
+  170, 170, 153,
+  102, 136, 255,
+  68, 68, 119,
+  204, 204, 187,
+  102, 102, 85,
+  136, 255, 68,
+  51, 51, 238,
+  0, 187, 255,
+  68, 102, 170,
+};
+
 static struct {
   atomic_flag opna_flag;
   struct opna opna;
@@ -39,9 +68,12 @@ static struct {
   struct pacc_vtable pacc;
   struct fmdsp_pacc *fp;
   int16_t audio_buf[MAX_SAMPLES * 2];
+  uint64_t volume;
+  uint8_t loops;
 } g = {
   .opna_flag = ATOMIC_FLAG_INIT,
   .at_fftdata_flag = ATOMIC_FLAG_INIT,
+  .volume = VOLUME_INIT,
 };
 
 EXPORT("init") bool fmplayer_web_init(void) {
@@ -75,6 +107,8 @@ EXPORT("loadFile") bool fmplayer_web_load_file() {
   g.fmfile = fmplayer_file_alloc(g.filename_buf, 0);
   if (!g.fmfile) goto err;
   fmplayer_file_load(&g.work, g.fmfile, 1);
+  g.volume = VOLUME_INIT;
+  g.loops = 0;
   atomic_flag_clear_explicit(&g.opna_flag, memory_order_release);
 
   if (g.fmfile->filename_sjis) {
@@ -89,10 +123,8 @@ err:
   return false;
 }
 
-EXPORT("setPalette") void fmplayer_web_set_palette(int p) {
-  if (p < 0) p = 0;
-  if (p >= 10) p = 9;
-  fmdsp_pacc_palette(g.fp, p);
+EXPORT("setLoops") void fmplayer_web_set_loops(uint8_t loops) {
+  g.loops = loops;
 }
 
 EXPORT("render") void fmplayer_web_render(void) {
@@ -100,6 +132,13 @@ EXPORT("render") void fmplayer_web_render(void) {
     memcpy(&g.fftdata.fdata, &g.at_fftdata, sizeof(g.fftdata.fdata));
     atomic_flag_clear_explicit(&g.at_fftdata_flag, memory_order_release);
   }
+  uint8_t p[FMDSP_PALETTE_COLORS * 3];
+  memcpy(p, palette, sizeof(p));
+  int fade = g.volume >> 24;
+  for (int i = 0; i < FMDSP_PALETTE_COLORS * 3; i++) {
+    p[i] = (p[i] * fade) >> 8;
+  }
+  g.pacc.palette(g.pc, p, FMDSP_PALETTE_COLORS);
   fmdsp_pacc_render(g.fp);
 }
 
@@ -124,6 +163,18 @@ EXPORT("mix") void fmplayer_web_mix(size_t samples) {
   while (atomic_flag_test_and_set_explicit(&g.opna_flag, memory_order_acquire));
   if (!g.work.paused) {
     opna_timer_mix(&g.opna_timer, g.audio_buf, samples);
+  }
+  if (g.loops != 0 && g.work.loop_cnt >= g.loops) {
+    for (size_t i = 0; i < samples; i++) {
+      int volume = g.volume >> 16;
+      g.audio_buf[2 * i + 0] = (g.audio_buf[2 * i + 0] * volume) >> 16;
+      g.audio_buf[2 * i + 1] = (g.audio_buf[2 * i + 1] * volume) >> 16;
+      g.volume = g.volume > VOLUME_FADE ? g.volume - VOLUME_FADE : 0;
+    }
+    if (g.volume == 0) {
+      g.work.playing = false;
+      g.work.paused = true;
+    }
   }
   atomic_flag_clear_explicit(&g.opna_flag, memory_order_release);
 

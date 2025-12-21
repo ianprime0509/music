@@ -129,12 +129,13 @@ function setUpRecording() {
     recordButton.textContent = "Record";
   });
 
-  recordButton.addEventListener("click", () => {
+  recordButton.addEventListener("click", async () => {
     if (!selectedSong) return;
     recordButton.disabled = true;
     recordButton.textContent = "Recording...";
     recorder.start();
-    selectSong(selectedSong);
+    await selectSong(selectedSong);
+    wasm.exports.setLoops(1);
     const onStopped = () => {
       recorder.stop();
       fmdspEvents.removeEventListener("stopped", onStopped);
