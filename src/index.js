@@ -147,6 +147,9 @@ function setUpRecording() {
 if (location.hash === "#dev") {
   // These options are really just for my personal use/convenience, which is why
   // they're behind a "flag".
+  // Useful command after downloading the webm version:
+  // ffmpeg -i song.webm -c:v libx264 -crf 20 -c:a copy song.mp4
+  // ffmpeg -i LOFI.M2.webm -c:v libx264 -vf scale=iw*2:ih*2 -crf 20 -c:a copy LOFI.M2.mp4
   console.info("developer mode enabled");
   setUpRecording();
 }
