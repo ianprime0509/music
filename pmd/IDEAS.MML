@@ -1,0 +1,16 @@
+#Title Random ideas
+#Option /v/c
+
+; EPIANO1 from BRICK.FF
+@  0   4   0   =SadPian
+  31  21   0   3   3  57   0  14  -1   0
+  31   9   0  10  15  22   0   1   0   0
+  31   1   0   1   5  53   0   1  -1   0
+  31   8   0   9  15   2   0   1   0   0
+
+; Sad piano bass line
+ABCD @0 v15 t30
+A o4 d1      o3 a1
+B o4 r8f1-8     r8e1-8
+C o4 r4a1-4     r4b1-4
+D o5 r4.e1-4.   r4.c1-4.
