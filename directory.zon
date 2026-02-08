@@ -4,6 +4,7 @@
         .{ .file = "LOFI2.M2", .source = "LOFI2.MML", .title = "Chilling" },
         .{ .file = "LOFI3.M2", .source = "LOFI3.MML", .title = "A Day at the Beach" },
         .{ .file = "LOFI4.M2", .source = "LOFI4.MML", .title = "Peaceful Town" },
+        .{ .file = "LOFI5.M2", .source = "LOFI5.MML", .title = "Rainy Day" },
         .{ .file = "SASUMMER.M2", .source = "SASUMMER.MML", .title = "One Summer's Day" },
     },
 }
