@@ -2,16 +2,16 @@
     .name = .music,
     .version = "0.0.0",
     .fingerprint = 0xcd52224a14259699,
-    .minimum_zig_version = "0.15.1",
+    .minimum_zig_version = "0.17.1",
     .paths = .{""},
     .dependencies = .{
         .@"98fmplayer" = .{
-            .url = "git+https://github.com/ianprime0509/98fmplayer#d48fc74b5e6f60cfdacbb018b7a8bf9df07fd68e",
-            .hash = "N-V-__8AAGOLLABPPpozUO_h_Y75Nlvdj012_kUEgr2Sq5bV",
+            .url = "git+https://github.com/ianprime0509/98fmplayer?ref=master#73ff97d6278e383495b99c9f05f085e9984ad4c6",
+            .hash = "N-V-__8AAEWKLAB7ok6LOIgbHHABIC2GC4brOgDjS07lRB5R",
         },
         .pmdc = .{
-            .url = "git+https://github.com/ianprime0509/pmdc?ref=main#b1fc8332eb9ad8a51372034e539675672d54ad02",
-            .hash = "pmdc-0.0.0-hzvMAnr0AgB2lfjyo3-ncr3DgF7ADx1pxETXfCelFnS_",
+            .url = "git+https://github.com/ianprime0509/pmdc?ref=main#977484113419dd8cb253b4b04ec74aa3da802888",
+            .hash = "pmdc-0.0.0-hzvMArr1AgBf6S_XmLAqNGMt7cmIxHmOU2V8R9ddZ9XH",
         },
         .coi_serviceworker = .{
             .url = "git+https://github.com/gzuidhof/coi-serviceworker?ref=master#7b1d2a092d0d2dd2b7270b6f12f13605de26f214",

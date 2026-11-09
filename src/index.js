@@ -11,7 +11,11 @@ const gl = canvas.getContext("webgl");
 
 const source = await fetch("main.wasm").then((r) => r.arrayBuffer());
 const memory = new WebAssembly.Memory({
-  initial: 1 * 1024,
+  // Zig replaces wasi_libc malloc with its own version that uses Zig
+  // WasmAllocator internally. This allocator uses @wasmMemoryGrow
+  // internally: that is, we must ensure this memory has some room
+  // to grow, or all allocations will fail.
+  initial: 1 * 1024 / 2,
   maximum: 1 * 1024,
   shared: true,
 });

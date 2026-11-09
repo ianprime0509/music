@@ -127,7 +127,8 @@ fn buildSite(b: *std.Build) void {
     exe.entry = .disabled;
     exe.wasi_exec_model = .reactor;
     exe.import_memory = true;
-    exe.initial_memory = 64 * 1024 * 1024;
+    // initial_memory and max_memory must match what index.js sets on the memory instance
+    exe.initial_memory = 64 * 1024 * 1024 / 2;
     exe.max_memory = 64 * 1024 * 1024;
     exe.shared_memory = true;
     exe.stack_size = 8 * 1024 * 1024;
@@ -188,7 +189,7 @@ fn compileMusic(b: *std.Build) void {
         run_mc.clearEnvironment();
         run_mc.addArg(song.source);
         run_mc.addFileInput(b.path(b.fmt("pmd/{s}", .{song.source})));
-        run_mc.addCheck(.{ .expect_term = .{ .Exited = 0 } });
+        run_mc.addCheck(.{ .expect_term = .{ .exited = 0 } });
         run_mc.has_side_effects = true;
 
         const copy = b.addInstallFileWithDir(

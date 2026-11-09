@@ -1,3 +1,4 @@
+const EBADF = 8;
 const ENOTSUP = 58;
 
 /**
@@ -23,7 +24,7 @@ export function imports(memory) {
     fd_filestat_set_times() { return ENOTSUP; },
     fd_pread() { return ENOTSUP; },
     fd_prestat_dir_name() { return ENOTSUP; },
-    fd_prestat_get() { return ENOTSUP; },
+    fd_prestat_get() { return EBADF; },
     fd_pwrite() { return ENOTSUP; },
     fd_read() { return ENOTSUP; },
     fd_readdir() { return ENOTSUP; },
